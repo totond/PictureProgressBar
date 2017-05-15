@@ -188,9 +188,7 @@ public class PictureProgressBar extends View {
                     break;
             }
         } else {
-            if (drawable != null) {
                 drawPicture(canvas);
-            }
         }
     }
 
@@ -234,7 +232,7 @@ public class PictureProgressBar extends View {
 
     //画图
     private void drawPicture(Canvas canvas) {
-        if (drawable == null){
+        if (drawable == null && animMode != ANIM_NULL){
             Log.e(TAG,"drawable is null");
             return;
         }
