@@ -109,6 +109,7 @@ public class PictureProgressBar extends View {
         scaleRate = typedArray.getFloat(R.styleable.PictureProgressBar_scaleRate, 0.1f);
         gradientStartColor = typedArray.getColor(R.styleable.PictureProgressBar_gradientStartColor,Color.RED);
         gradientEndColor = typedArray.getColor(R.styleable.PictureProgressBar_gradientEndColor,Color.YELLOW);
+        isGradient = typedArray.getBoolean(R.styleable.PictureProgressBar_isGradient,false);
         init();
     }
 

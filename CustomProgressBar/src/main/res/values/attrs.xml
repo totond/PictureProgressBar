@@ -28,6 +28,7 @@
         <attr name="scaleMax" format="float"/>
         <attr name="scaleMin" format="float"/>
         <attr name="scaleRate" format="float"/>
+        <attr name="isGradient" format="boolean"/>
         <attr name="gradientStartColor" format="color"/>
         <attr name="gradientEndColor" format="color"/>
 
