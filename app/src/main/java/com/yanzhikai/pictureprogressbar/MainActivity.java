@@ -1,4 +1,4 @@
-package com.scut.pictureprogressbar;
+package com.yanzhikai.pictureprogressbar;
 
 import android.animation.ValueAnimator;
 import android.support.v7.app.AppCompatActivity;

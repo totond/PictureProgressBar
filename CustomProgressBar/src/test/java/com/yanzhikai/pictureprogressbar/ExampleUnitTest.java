@@ -1,4 +1,4 @@
-package com.scut.pictureprogressbar;
+package com.yanzhikai.pictureprogressbar;
 
 import org.junit.Test;
 

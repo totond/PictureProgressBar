@@ -1,4 +1,4 @@
-package com.scut.pictureprogressbar;
+package com.yanzhikai.pictureprogressbar;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -42,7 +42,7 @@ public class PictureProgress extends View {
     //是否令设进度条宽高
     private boolean isSetBar = false;
     //进度条宽高
-    private int progressWidth = 10, progressHeight = 30;
+    private int progressWidth = 100, progressHeight = 30;
     //进度条高度偏移量
     private int progressHeightOffset = 0;
     //进度条刷新时间
@@ -50,16 +50,19 @@ public class PictureProgress extends View {
 
     private RectF rectFBG = new RectF(), rectFPB = new RectF();
 
+    //是否使用颜色渐变器
+    private boolean isGradient = false;
+    //颜色渐变器
     private LinearGradient linearGradient;
 
     private boolean isAnimRun = true;
     //动画模式
-    private int animMode = 0;
     private final int ANIM_NULL = 0;
     private final int ANIM_ROTATE = 1;
     private final int ANIM_SCALE = 2;
     private final int ANIM_ROTATE_SCALE = 3;
     private final int ANIM_FRAME = 4;
+    private int animMode = ANIM_NULL;
     private int rotateRate = 10;
     private int rotateDegree = 0;
     private float scaleMax = 1.5f, scaleMin = 0.5f;
@@ -124,16 +127,18 @@ public class PictureProgress extends View {
         paintBar.setColor(barColor);
 
 
-        //在PreDraw时获取View属性,因为在初始化的时候View还没进行Measure
-        getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
-            @Override
-            public boolean onPreDraw() {
-                getViewTreeObserver().removeOnPreDrawListener(this);
-                linearGradient = new LinearGradient(0, progressHeight / 2, progressWidth, progressHeight / 2, gradientStartColor, gradientEndColor, Shader.TileMode.CLAMP);
-                paintBar.setShader(linearGradient);
-                return false;
-            }
-        });
+        if (isGradient) {
+            //在PreDraw时获取View属性,因为在初始化的时候View还没进行Measure
+            getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+                @Override
+                public boolean onPreDraw() {
+                    getViewTreeObserver().removeOnPreDrawListener(this);
+                    linearGradient = new LinearGradient(0, progressHeight / 2, progressWidth, progressHeight / 2, gradientStartColor, gradientEndColor, Shader.TileMode.CLAMP);
+                    paintBar.setShader(linearGradient);
+                    return false;
+                }
+            });
+        }
 
 
     }
@@ -277,7 +282,10 @@ public class PictureProgress extends View {
     public void setProgress(int progress) {
         if (progress <= max) {
             this.progress = progress;
-        } else {
+        } else if (progress < 0){
+            this.progress = 0;
+        }
+        else {
             this.progress = max;
         }
         doProgressRefresh();
@@ -288,7 +296,7 @@ public class PictureProgress extends View {
         this.isAnimRun = isAnimRun;
     }
 
-    //设置要传入的图片ID数组
+    //设置帧动画时要传入的图片ID数组
     public void setDrawableIds(int[] drawableIds) {
         this.drawableIds = drawableIds;
     }
@@ -298,6 +306,14 @@ public class PictureProgress extends View {
         drawable = getResources().getDrawable(id);
     }
 
+    //设置颜色渐变器
+    public void setLinearGradient(LinearGradient linearGradient) {
+        this.linearGradient = linearGradient;
+    }
+
+    public LinearGradient getLinearGradient() {
+        return linearGradient;
+    }
     public int getProgress() {
         return progress;
     }
@@ -342,12 +358,130 @@ public class PictureProgress extends View {
         return isRound;
     }
 
+    public void setProgressHeight(int progressHeight) {
+        this.progressHeight = progressHeight;
+    }
+
+    public int getProgressHeight() {
+        return progressHeight;
+    }
+
+    public void setProgressHeightOffset(int progressHeightOffset) {
+        this.progressHeightOffset = progressHeightOffset;
+    }
+
+    public int getProgressHeightOffset() {
+        return progressHeightOffset;
+    }
+
+    public void setHalfDrawableWidth(int halfDrawableWidth) {
+        this.halfDrawableWidth = halfDrawableWidth;
+    }
+
+    public int getHalfDrawableWidth() {
+        return halfDrawableWidth;
+    }
+
+    public void setDrawableHeightOffset(int drawableHeightOffset) {
+        this.drawableHeightOffset = drawableHeightOffset;
+    }
+
+    public int getDrawableHeightOffset() {
+        return drawableHeightOffset;
+    }
+
+    public void setHalfDrawableHeight(int halfDrawableHeight) {
+        this.halfDrawableHeight = halfDrawableHeight;
+    }
+
+    public int getHalfDrawableHeight() {
+        return halfDrawableHeight;
+    }
+
+    public void setAnimMode(int animMode) {
+        this.animMode = animMode;
+    }
+
+    public int getAnimMode() {
+        return animMode;
+    }
+
+    public void setRotateRate(int rotateRate) {
+        this.rotateRate = rotateRate;
+    }
+
+    public int getRotateRate() {
+        return rotateRate;
+    }
+
+    public void setRefreshTime(int refreshTime) {
+        this.refreshTime = refreshTime;
+    }
+
+    public int getRefreshTime() {
+        return refreshTime;
+    }
+
+    public void setGradientStartColor(int gradientStartColor) {
+        this.gradientStartColor = gradientStartColor;
+    }
+
+    public void setGradientEndColor(int gradientEndColor) {
+        this.gradientEndColor = gradientEndColor;
+    }
+
+    public void setScaleMin(float scaleMin) {
+        this.scaleMin = scaleMin;
+    }
+
+    public float getScaleMin() {
+        return scaleMin;
+    }
+
+    public void setScaleMax(float scaleMax) {
+        this.scaleMax = scaleMax;
+    }
+
+    public float getScaleMax() {
+        return scaleMax;
+    }
+
+    public void setScaleRate(float scaleRate) {
+        this.scaleRate = scaleRate;
+    }
+
+    public float getScaleRate() {
+        return scaleRate;
+    }
+
+    public void setRotateDegree(int rotateDegree) {
+        this.rotateDegree = rotateDegree;
+    }
+
+    public int getRotateDegree() {
+        return rotateDegree;
+    }
+
+    public void setRoundX(int roundX) {
+        this.roundX = roundX;
+    }
+
+    public void setRoundY(int roundY) {
+        this.roundY = roundY;
+    }
+
+
+
+    //设置进度监听器
     public void setOnProgressChangeListener(OnProgressChangeListener onProgressChangeListener) {
         this.onProgressChangeListener = onProgressChangeListener;
     }
 
+    //进度监听器
     public interface OnProgressChangeListener {
+        //进度改变时的回调
         public void onOnProgressChange(int progress);
+        //进度完成时的回答
         public void onOnProgressFinish();
     }
 }

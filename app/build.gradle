@@ -4,7 +4,7 @@ android {
     compileSdkVersion 23
     buildToolsVersion "25.0.1"
     defaultConfig {
-        applicationId "com.scut.pictureprogressbar"
+        applicationId "com.yanzhikai.pictureprogressbar"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1

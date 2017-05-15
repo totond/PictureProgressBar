@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.scut.pictureprogressbar.MainActivity">
+    tools:context="com.yanzhikai.pictureprogressbar.MainActivity">
 
 
     <Button
@@ -22,7 +22,8 @@
         android:text="ANIM_FRAME:"
         android:textColor="#000000"
         android:textSize="16sp"/>
-    <com.scut.pictureprogressbar.PictureProgress
+
+    <com.yanzhikai.pictureprogressbar.PictureProgress
         android:layout_width="match_parent"
         android:layout_height="60dp"
         app:drawable="@drawable/test_shape"
@@ -48,7 +49,7 @@
         android:text="ANIM_NULL:"
         android:textColor="#000000"
         android:textSize="16sp"/>
-    <com.scut.pictureprogressbar.PictureProgress
+    <com.yanzhikai.pictureprogressbar.PictureProgress
         android:layout_width="match_parent"
         android:layout_height="40dp"
         app:drawable="@drawable/b333"
@@ -69,7 +70,7 @@
         android:text="ANIM_ROTATE:"
         android:textColor="#000000"
         android:textSize="16sp"/>
-    <com.scut.pictureprogressbar.PictureProgress
+    <com.yanzhikai.pictureprogressbar.PictureProgress
         android:layout_width="match_parent"
         android:layout_height="60dp"
         app:drawable="@drawable/test_shape"
@@ -92,7 +93,7 @@
         android:text="ANIM_SCALE:"
         android:textColor="#000000"
         android:textSize="16sp"/>
-    <com.scut.pictureprogressbar.PictureProgress
+    <com.yanzhikai.pictureprogressbar.PictureProgress
         android:layout_width="match_parent"
         android:layout_height="80dp"
         app:drawable="@drawable/test_shape"
@@ -117,7 +118,7 @@
         android:text="ANIM_ROTATE_SCALE:"
         android:textColor="#000000"
         android:textSize="16sp"/>
-    <com.scut.pictureprogressbar.PictureProgress
+    <com.yanzhikai.pictureprogressbar.PictureProgress
         android:layout_width="match_parent"
         android:layout_height="80dp"
         app:drawable="@drawable/test_shape"

@@ -1,4 +1,4 @@
-package com.scut.pictureprogressbar;
+package com.yanzhikai.pictureprogressbar;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

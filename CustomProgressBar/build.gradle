@@ -34,7 +34,8 @@ publish {
     userOrg = 'yanzhikaijky'
     repoName = 'CustomViewRepository'
     groupId = 'com.yanzhikaijky'
-    artifactId = 'com.yanzhikai.pictureprogressbar'
-    publishVersion = '1.0.0'
+    artifactId = 'PictureProgressbar'
+    publishVersion = '1.0.1'
     desc = 'a picture progressbar'
+    website = 'https://github.com/totond/PictureProgressBar'
 }
