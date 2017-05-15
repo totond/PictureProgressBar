@@ -10,6 +10,7 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -18,7 +19,8 @@ import android.view.ViewTreeObserver;
  * Created by yany on 2017/5/2.
  */
 
-public class PictureProgress extends View {
+public class PictureProgressBar extends View {
+    private final String TAG = "PictureProgressBar";
     //画笔
     private Paint paintPicture, paintBackGround, paintBar;
     //颜色
@@ -74,43 +76,43 @@ public class PictureProgress extends View {
     private int gradientStartColor = Color.RED,gradientEndColor = Color.YELLOW;
 
 
-    public PictureProgress(Context context) {
+    public PictureProgressBar(Context context) {
         super(context);
         init();
     }
 
 
-    public PictureProgress(Context context, AttributeSet attrs) {
+    public PictureProgressBar(Context context, AttributeSet attrs) {
         super(context, attrs);
         //获取xml属性
-        TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.PictureProgress, 0, 0);
-        backGroundColor = typedArray.getColor(R.styleable.PictureProgress_backGroundColor, Color.GRAY);
-        barColor = typedArray.getColor(R.styleable.PictureProgress_barColor, Color.RED);
-        drawable = typedArray.getDrawable(R.styleable.PictureProgress_drawable);
-        halfDrawableWidth = typedArray.getDimensionPixelSize(R.styleable.PictureProgress_halfDrawableWidth, 35);
-        halfDrawableHeight = typedArray.getDimensionPixelSize(R.styleable.PictureProgress_halfDrawableHeight, 35);
-        drawableHeightOffset = typedArray.getDimensionPixelSize(R.styleable.PictureProgress_drawableHeightOffset, 0);
-        isRound = typedArray.getBoolean(R.styleable.PictureProgress_isRound, true);
-        roundX = typedArray.getDimensionPixelSize(R.styleable.PictureProgress_roundX, 20);
-        roundY = typedArray.getDimensionPixelSize(R.styleable.PictureProgress_roundY, 20);
-        progress = typedArray.getInt(R.styleable.PictureProgress_progress, 0);
-        max = typedArray.getInt(R.styleable.PictureProgress_max, 100);
-        isSetBar = typedArray.getBoolean(R.styleable.PictureProgress_isSetBar, false);
-        progressHeight = typedArray.getDimensionPixelSize(R.styleable.PictureProgress_progressHeight, 30);
-        progressHeightOffset = typedArray.getDimensionPixelSize(R.styleable.PictureProgress_progressHeightOffset, 0);
-        refreshTime = typedArray.getInt(R.styleable.PictureProgress_refreshTime,100);
-        animMode = typedArray.getInt(R.styleable.PictureProgress_animMode, ANIM_NULL);
-        rotateRate = typedArray.getInt(R.styleable.PictureProgress_rotateRate, 10);
-        rotateDegree = typedArray.getInt(R.styleable.PictureProgress_rotateDegree, 0);
-        scaleMax = typedArray.getFloat(R.styleable.PictureProgress_scaleMax, 2);
-        scaleMin = typedArray.getFloat(R.styleable.PictureProgress_scaleMin, 1);
-        scaleRate = typedArray.getFloat(R.styleable.PictureProgress_scaleRate, 0.1f);
-        gradientStartColor = typedArray.getColor(R.styleable.PictureProgress_gradientStartColor,Color.RED);
-        gradientEndColor = typedArray.getColor(R.styleable.PictureProgress_gradientEndColor,Color.YELLOW);
+        TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.PictureProgressBar, 0, 0);
+        backGroundColor = typedArray.getColor(R.styleable.PictureProgressBar_backGroundColor, Color.GRAY);
+        barColor = typedArray.getColor(R.styleable.PictureProgressBar_barColor, Color.RED);
+        drawable = typedArray.getDrawable(R.styleable.PictureProgressBar_drawable);
+        halfDrawableWidth = typedArray.getDimensionPixelSize(R.styleable.PictureProgressBar_halfDrawableWidth, 35);
+        halfDrawableHeight = typedArray.getDimensionPixelSize(R.styleable.PictureProgressBar_halfDrawableHeight, 35);
+        drawableHeightOffset = typedArray.getDimensionPixelSize(R.styleable.PictureProgressBar_drawableHeightOffset, 0);
+        isRound = typedArray.getBoolean(R.styleable.PictureProgressBar_isRound, true);
+        roundX = typedArray.getDimensionPixelSize(R.styleable.PictureProgressBar_roundX, 20);
+        roundY = typedArray.getDimensionPixelSize(R.styleable.PictureProgressBar_roundY, 20);
+        progress = typedArray.getInt(R.styleable.PictureProgressBar_progress, 0);
+        max = typedArray.getInt(R.styleable.PictureProgressBar_max, 100);
+        isSetBar = typedArray.getBoolean(R.styleable.PictureProgressBar_isSetBar, false);
+        progressHeight = typedArray.getDimensionPixelSize(R.styleable.PictureProgressBar_progressHeight, 30);
+        progressHeightOffset = typedArray.getDimensionPixelSize(R.styleable.PictureProgressBar_progressHeightOffset, 0);
+        refreshTime = typedArray.getInt(R.styleable.PictureProgressBar_refreshTime,100);
+        animMode = typedArray.getInt(R.styleable.PictureProgressBar_animMode, ANIM_NULL);
+        rotateRate = typedArray.getInt(R.styleable.PictureProgressBar_rotateRate, 10);
+        rotateDegree = typedArray.getInt(R.styleable.PictureProgressBar_rotateDegree, 0);
+        scaleMax = typedArray.getFloat(R.styleable.PictureProgressBar_scaleMax, 2);
+        scaleMin = typedArray.getFloat(R.styleable.PictureProgressBar_scaleMin, 1);
+        scaleRate = typedArray.getFloat(R.styleable.PictureProgressBar_scaleRate, 0.1f);
+        gradientStartColor = typedArray.getColor(R.styleable.PictureProgressBar_gradientStartColor,Color.RED);
+        gradientEndColor = typedArray.getColor(R.styleable.PictureProgressBar_gradientEndColor,Color.YELLOW);
         init();
     }
 
-    public PictureProgress(Context context, AttributeSet attrs, int defStyleAttr) {
+    public PictureProgressBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
@@ -186,7 +188,9 @@ public class PictureProgress extends View {
                     break;
             }
         } else {
-            drawPicture(canvas);
+            if (drawable != null) {
+                drawPicture(canvas);
+            }
         }
     }
 
@@ -230,6 +234,10 @@ public class PictureProgress extends View {
 
     //画图
     private void drawPicture(Canvas canvas) {
+        if (drawable == null){
+            Log.e(TAG,"drawable is null");
+            return;
+        }
         drawable.setBounds(x - halfDrawableWidth,
                 getHeight() / 2 - halfDrawableHeight + drawableHeightOffset,
                 x + halfDrawableWidth,

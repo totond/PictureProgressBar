@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="PictureProgress">
+    <declare-styleable name="PictureProgressBar">
         <attr name="backGroundColor" format="color"/>
         <attr name="barColor" format="color"/>
         <attr name="drawable" format="reference"/>
