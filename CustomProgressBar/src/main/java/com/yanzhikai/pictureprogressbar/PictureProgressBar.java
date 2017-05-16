@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 
 /**
- * Created by yany on 2017/5/2.
+ * 一个在当前进度中心带图片和动画的ProgressBar
  */
 
 public class PictureProgressBar extends View {
@@ -129,7 +129,7 @@ public class PictureProgressBar extends View {
         paintBar = new Paint();
         paintBar.setColor(barColor);
 
-
+        //是否需要渐变器
         if (isGradient) {
             //在PreDraw时获取View属性,因为在初始化的时候View还没进行Measure
             getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
@@ -142,8 +142,6 @@ public class PictureProgressBar extends View {
                 }
             });
         }
-
-
     }
 
     @Override
@@ -207,12 +205,11 @@ public class PictureProgressBar extends View {
             canvas.drawRect(rectFBG, paintBackGround);
             canvas.drawRect(0, 0, x, getHeight(), paintBar);
         }
-
     }
 
     //旋转画布
     private void rotateCanvas(Canvas canvas) {
-        canvas.rotate(rotateDegree, x, y + drawableHeightOffset);
+        canvas.rotate(rotateDegree % 360, x, y + drawableHeightOffset);
         rotateDegree += rotateRate;
     }
 
@@ -275,16 +272,6 @@ public class PictureProgressBar extends View {
         setMeasuredDimension(width, height);
     }
 
-    //进行进度改变之后的操作
-    private synchronized void doProgressRefresh() {
-        if (onProgressChangeListener != null) {
-            onProgressChangeListener.onOnProgressChange(progress);
-            if (progress >= max) {
-                onProgressChangeListener.onOnProgressFinish();
-            }
-        }
-    }
-
     //设置进度
     public void setProgress(int progress) {
         if (progress <= max) {
@@ -297,6 +284,17 @@ public class PictureProgressBar extends View {
         }
         doProgressRefresh();
     }
+
+    //进行进度改变之后的操作
+    private synchronized void doProgressRefresh() {
+        if (onProgressChangeListener != null) {
+            onProgressChangeListener.onOnProgressChange(progress);
+            if (progress >= max) {
+                onProgressChangeListener.onOnProgressFinish();
+            }
+        }
+    }
+
 
     //设置动画开关
     public void setAnimRun(boolean isAnimRun) {
