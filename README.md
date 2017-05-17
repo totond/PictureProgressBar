@@ -8,7 +8,7 @@ Welcome to Star or Fork！
 ### Gradle
 
 ```
-    compile 'com.yanzhikaijky:PictureProgressbar:1.0.2'
+    compile 'com.yanzhikaijky:PictureProgressbar:1.1.0'
 ```
 
 ###M aven
@@ -17,7 +17,7 @@ Welcome to Star or Fork！
 <dependency>
   <groupId>com.yanzhikaijky</groupId>
   <artifactId>PictureProgressbar</artifactId>
-  <version>1.0.2</version>
+  <version>1.1.0</version>
   <type>pom</type>
 </dependency>
 ```
