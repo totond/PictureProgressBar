@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 
 /**
+ * @author yanzhikai_yjk@qq.com
  * 一个在当前进度中心带图片和动画的ProgressBar
  */
 

@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'com.novoda.bintray-release'//添加
 
 android {
     compileSdkVersion 23
@@ -31,11 +31,11 @@ dependencies {
 }
 
 publish {
-    userOrg = 'yanzhikaijky'
-    repoName = 'CustomViewRepository'
-    groupId = 'com.yanzhikaijky'
-    artifactId = 'PictureProgressbar'
-    publishVersion = '1.0.4'
-    desc = 'a picture progressbar'
-    website = 'https://github.com/totond/PictureProgressBar'
+    userOrg = 'yanzhikaijky'        //Binary用户名
+    repoName = 'CustomViewRepository'   //Repository的名字
+    groupId = 'com.yanzhikaijky'        //包名
+    artifactId = 'PictureProgressbar'   //项目名
+    publishVersion = '1.1.0'            //版本号
+    desc = 'a picture progressbar'      //description说明，随便写
+    website = 'https://github.com/totond/PictureProgressBar'//VCS地址，这里最好写GitHub的，我试过不写然后上传不了
 }
