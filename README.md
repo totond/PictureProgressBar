@@ -99,5 +99,5 @@ id：炎之铠
 炎之铠的邮箱：yanzhikai_yjk@qq.com
 PictureProgressBar全解析blog：
 http://blog.csdn.net/totond/article/details/72359888
-http://www.jianshu.com/writer#/notebooks/3759400/notes/12460770
+http://www.jianshu.com/p/009cb305ec5f
 
