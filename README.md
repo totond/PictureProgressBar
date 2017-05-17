@@ -1,5 +1,5 @@
 # PictureProgressBar
-Welcome to Star or Fork！
+欢迎 Star or Fork！有什么意见和建议可以在Issue上提出。
 ## 简介
 　　这是一个可在进度条的当前进度点设置图片的ProgressBar，并且可以设置几种动画模式，效果如图：
 ![](http://i.imgur.com/076zTuA.gif)
@@ -11,7 +11,16 @@ Welcome to Star or Fork！
     compile 'com.yanzhikaijky:PictureProgressbar:1.1.0'
 ```
 
+###M aven
 
+```
+<dependency>
+  <groupId>com.yanzhikaijky</groupId>
+  <artifactId>PictureProgressbar</artifactId>
+  <version>1.1.0</version>
+  <type>pom</type>
+</dependency>
+```
 
 ### 属性
 
@@ -88,6 +97,7 @@ Welcome to Star or Fork！
 ## 关于作者
 id：炎之铠
 炎之铠的邮箱：yanzhikai_yjk@qq.com
+CSDN：http://blog.csdn.net/totond
 PictureProgressBar全解析blog：
 http://blog.csdn.net/totond/article/details/72359888
 http://www.jianshu.com/p/009cb305ec5f
