@@ -1,17 +1,17 @@
-#PictureProgressBar
+# PictureProgressBar
 Welcome to Star or Fork！
-##简介
+## 简介
 　　这是一个可在进度条的当前进度点设置图片的ProgressBar，并且可以设置几种动画模式，效果如图：
 ![](http://i.imgur.com/076zTuA.gif)
 
-##使用
-###Gradle
+## 使用
+### Gradle
 
 ```
     compile 'com.yanzhikaijky:PictureProgressbar:1.0.2'
 ```
 
-###Maven
+###M aven
 
 ```
 <dependency>
@@ -22,7 +22,7 @@ Welcome to Star or Fork！
 </dependency>
 ```
 
-###属性
+### 属性
 
 |**属性名称**|**意义**|**类型**|**默认值**|
 |--|--|:--:|:--:|
@@ -89,14 +89,15 @@ Welcome to Star or Fork！
         public void onOnProgressFinish();
     }
 ```
-##开源协议
+## 开源协议
 　　PictureProgressBar遵循Apache 2.0开源协议。
-##后续
+## 后续
 　　目前没有加入文字，主要是想不到在哪个位置加比较好。后续看看需求加入文字和一些其它的动画，目前在学习RxJava，看看用观察者模式来实现会不会更好，貌似Android源码的ProgressBar就是基于观察者模式来刷新进度条的，可以继承它来实现试试，不同于我这种定时刷新，减少了资源的消耗，但是这样的话动画的处理会是个难点。
 
-##关于作者
+## 关于作者
 id：炎之铠
 炎之铠的邮箱：yanzhikai_yjk@qq.com
 PictureProgressBar全解析blog：
-
+http://blog.csdn.net/totond/article/details/72359888
+http://www.jianshu.com/writer#/notebooks/3759400/notes/12460770
 
