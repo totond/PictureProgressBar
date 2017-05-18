@@ -11,16 +11,7 @@
     compile 'com.yanzhikaijky:PictureProgressbar:1.1.0'
 ```
 
-###M aven
 
-```
-<dependency>
-  <groupId>com.yanzhikaijky</groupId>
-  <artifactId>PictureProgressbar</artifactId>
-  <version>1.1.0</version>
-  <type>pom</type>
-</dependency>
-```
 
 ### 属性
 
