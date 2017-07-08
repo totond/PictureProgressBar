@@ -82,14 +82,26 @@
 ```
 ## 开源协议
 　　PictureProgressBar遵循Apache 2.0开源协议。
-## 后续
-　　目前没有加入文字，主要是想不到在哪个位置加比较好。后续看看需求加入文字和一些其它的动画，目前在学习RxJava，看看用观察者模式来实现会不会更好，貌似Android源码的ProgressBar就是基于观察者模式来刷新进度条的，可以继承它来实现试试，不同于我这种定时刷新，减少了资源的消耗，但是这样的话动画的处理会是个难点。
+
+## 更新
+ - 2017/07/07更新：
+　　加入了progressPercentage属性来表示进度条进度比例，修改了`setProgress()`内容，在里面加入
+
+```
+progressPercentage = progress/max;
+```
+　　防止在输入较大int数值的时候，计算进度操作导致int类型溢出的情况，如下载场景下的进度数值。
 
 ## 关于作者
-id：炎之铠
-炎之铠的邮箱：yanzhikai_yjk@qq.com
-CSDN：http://blog.csdn.net/totond
-PictureProgressBar全解析blog：
-http://blog.csdn.net/totond/article/details/72359888
-http://www.jianshu.com/p/009cb305ec5f
+ > id：炎之铠
+
+ > 炎之铠的邮箱：yanzhikai_yjk@qq.com
+
+ > CSDN：http://blog.csdn.net/totond
+
+ > PictureProgressBar全解析blog：
+
+ > http://blog.csdn.net/totond/article/details/72359888
+
+ > http://www.jianshu.com/p/009cb305ec5f
 

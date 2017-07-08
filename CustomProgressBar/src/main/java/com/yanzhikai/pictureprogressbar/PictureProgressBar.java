@@ -40,6 +40,8 @@ public class PictureProgressBar extends View {
     private int roundX = 20, roundY = 20;
     //进度值和最大值
     private int progress = 0, max = 100;
+    //进度条百分比
+    private float progressPercentage = 0;
     //进度条当前进度中心点
     private int x, y;
     //是否令设进度条宽高
@@ -148,7 +150,7 @@ public class PictureProgressBar extends View {
     @Override
     protected synchronized void onDraw(Canvas canvas) {
         //获取进度条当前进度的中心点坐标
-        x = (progressWidth - halfDrawableWidth) * progress / max + halfDrawableWidth;
+        x = (int) ((progressWidth - halfDrawableWidth) * progressPercentage + halfDrawableWidth);
         y = getHeight() / 2;
 
         drawBar(canvas);
@@ -273,8 +275,9 @@ public class PictureProgressBar extends View {
         setMeasuredDimension(width, height);
     }
 
+
     //设置进度
-    public void setProgress(int progress) {
+    public synchronized void setProgress(int progress) {
         if (progress <= max) {
             this.progress = progress;
         } else if (progress < 0){
@@ -283,6 +286,7 @@ public class PictureProgressBar extends View {
         else {
             this.progress = max;
         }
+        progressPercentage = progress / max;
         doProgressRefresh();
     }
 
@@ -487,7 +491,7 @@ public class PictureProgressBar extends View {
     public interface OnProgressChangeListener {
         //进度改变时的回调
         public void onOnProgressChange(int progress);
-        //进度完成时的回答
+        //进度完成时的回调
         public void onOnProgressFinish();
     }
 }
