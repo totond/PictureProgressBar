@@ -8,7 +8,7 @@
 ### Gradle
 
 ```
-    compile 'com.yanzhikaijky:PictureProgressbar:1.1.0'
+    compile 'com.yanzhikaijky:PictureProgressbar:1.1.1'
 ```
 
 
