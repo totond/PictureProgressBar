@@ -3,10 +3,12 @@
 ## Description
 PictureProgressBar allows you to set picture and animation in the position of current progress.
 
-###Demo
+
+### Demo
 ![](http://i.imgur.com/076zTuA.gif)
 
-## 使用
+## Usage
+
 ### Gradle
 ```
     compile 'com.yanzhikaijky:PictureProgressbar:1.1.1'
