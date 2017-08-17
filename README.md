@@ -1,4 +1,6 @@
 # PictureProgressBar
+[English README please click!](https://github.com/totond/PictureProgressBar/blob/master/README-en.md)
+
 欢迎 Star or Fork！有什么意见和建议可以在Issue上提出。
 ## 简介
 　　这是一个可在进度条的当前进度点设置图片的ProgressBar，并且可以设置几种动画模式，效果如图：
@@ -84,7 +86,7 @@
 　　PictureProgressBar遵循Apache 2.0开源协议。
 
 ## 更新
- - 2017/07/07更新：
+ - **version 1.1.1 **:2017/07/07修复bug：
 　　加入了progressPercentage属性来表示进度条进度比例，修改了`setProgress()`内容，在里面加入
 
 ```
