@@ -35,12 +35,12 @@ public class MainActivity extends AppCompatActivity {
                     pb_1.setAnimRun(false);
                 }
                 pb_2.setProgress(Integer.parseInt(animation.getAnimatedValue().toString()));
-                if (pb_2.getProgress() >= pb_1.getMax()){
+                if (pb_2.getProgress() >= pb_2.getMax()){
                     //进度满了之后改变图片
                     pb_2.setPicture(R.drawable.b666);
                 }
                 pb_3.setProgress(Integer.parseInt(animation.getAnimatedValue().toString()));
-                if (pb_3.getProgress() >= pb_1.getMax()){
+                if (pb_3.getProgress() >= pb_3.getMax()){
                     pb_3.setAnimRun(false);
                 }
                 pb_4.setProgress(Integer.parseInt(animation.getAnimatedValue().toString()));
