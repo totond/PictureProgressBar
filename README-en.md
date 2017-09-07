@@ -11,7 +11,7 @@ PictureProgressBar allows you to set picture and animation in the position of cu
 
 ### Gradle
 ```
-    compile 'com.yanzhikaijky:PictureProgressbar:1.1.1'
+    compile 'com.yanzhikaijky:PictureProgressbar:1.1.2'
 ```
 
 ### Attributes

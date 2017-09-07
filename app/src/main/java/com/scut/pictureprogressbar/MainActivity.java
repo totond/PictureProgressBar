@@ -3,6 +3,7 @@ package com.scut.pictureprogressbar;
 import android.animation.ValueAnimator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
+                Log.d("sdsa", "onAnimationUpdate: "+Integer.parseInt(animation.getAnimatedValue().toString()));
                 pb_1.setProgress(Integer.parseInt(animation.getAnimatedValue().toString()));
                 if (pb_1.getProgress() >= pb_1.getMax()){
                     //进度满了之后停止动画

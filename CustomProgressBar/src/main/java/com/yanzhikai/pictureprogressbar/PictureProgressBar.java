@@ -145,6 +145,8 @@ public class PictureProgressBar extends View {
                 }
             });
         }
+
+
     }
 
     @Override
@@ -286,7 +288,7 @@ public class PictureProgressBar extends View {
         else {
             this.progress = max;
         }
-        progressPercentage = progress / max;
+        progressPercentage = progress / Float.valueOf(max);
         doProgressRefresh();
     }
 

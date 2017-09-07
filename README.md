@@ -10,7 +10,7 @@
 ### Gradle
 
 ```
-    compile 'com.yanzhikaijky:PictureProgressbar:1.1.1'
+    compile 'com.yanzhikaijky:PictureProgressbar:1.1.2'
 ```
 
 
@@ -93,6 +93,8 @@
 progressPercentage = progress/max;
 ```
 　　防止在输入较大int数值的时候，计算进度操作导致int类型溢出的情况，如下载场景下的进度数值。
+- **version 1.1.2 **:2017/09/07修复bug：
+　　progress/max得到0的结果，醉了过了两个月才发现。。。
 
 ## 关于作者
  > id：炎之铠
