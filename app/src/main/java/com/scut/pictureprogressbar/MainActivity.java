@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         pb_5 = (PictureProgressBar) findViewById(R.id.pb_5);
 
         //使用属性动画来实现进度的变化
-        final ValueAnimator valueAnimator = ValueAnimator.ofInt(0,10000);
+        final ValueAnimator valueAnimator = ValueAnimator.ofInt(0,1000);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        valueAnimator.setDuration(60000);
+        valueAnimator.setDuration(10000);
         btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
