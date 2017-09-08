@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 
+import java.util.ArrayList;
+
 /**
  * @author yanzhikai_yjk@qq.com
  * 一个在当前进度中心带图片和动画的ProgressBar
@@ -68,13 +70,16 @@ public class PictureProgressBar extends View {
     private final int ANIM_ROTATE_SCALE = 3;
     private final int ANIM_FRAME = 4;
     private int animMode = ANIM_NULL;
+
     private int rotateRate = 10;
     private int rotateDegree = 0;
     private float scaleMax = 1.5f, scaleMin = 0.5f;
     private float scaleLevel = 1;
     private float scaleRate = 0.1f;
     boolean isScaleIncrease = true;
+
     private int drawableIds[];
+    private ArrayList<Drawable> drawableList = new ArrayList<>();;
     private int frameIndex = 0;
     private int gradientStartColor = Color.RED,gradientEndColor = Color.YELLOW;
 
@@ -147,6 +152,7 @@ public class PictureProgressBar extends View {
         }
 
 
+
     }
 
     @Override
@@ -182,9 +188,12 @@ public class PictureProgressBar extends View {
                     drawPicture(canvas);
                     break;
                 case ANIM_FRAME:
-                    drawable = getResources().getDrawable(drawableIds[frameIndex]);
+                    drawable = drawableList.get(frameIndex);
+                    if (drawable == null){
+                        drawable = getResources().getDrawable(drawableIds[frameIndex]);
+                    }
                     drawPicture(canvas);
-                    if (frameIndex >= drawableIds.length -1){
+                    if (frameIndex >= drawableIds.length - 1){
                         frameIndex = 0;
                     }else {
                         frameIndex++;
@@ -311,6 +320,10 @@ public class PictureProgressBar extends View {
     //设置帧动画时要传入的图片ID数组
     public void setDrawableIds(int[] drawableIds) {
         this.drawableIds = drawableIds;
+        drawableList.clear();
+        for (int id : drawableIds){
+            drawableList.add(getResources().getDrawable(id));
+        }
     }
 
     //设置图片
