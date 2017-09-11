@@ -11,7 +11,7 @@ PictureProgressBar allows you to set picture and animation in the position of cu
 
 ### Gradle
 ```
-    compile 'com.yanzhikaijky:PictureProgressbar:1.1.2'
+    compile 'com.yanzhikaijky:PictureProgressbar:1.2.0'
 ```
 
 ### Attributes
@@ -41,7 +41,12 @@ PictureProgressBar allows you to set picture and animation in the position of cu
 |scaleRate            |  The scale of each interval time  | float | 0.1|
 |gradientStartColor   |  The gradient start color  |color | #ff0000 |
 |gradientEndColor     |  The gradient end color   |color | #ffff00|
+|**backgroundDrawable**   |  The background drawable  |reference |  |
+|**barDrawable**     |  The bar drawable  |reference | |
 
+ > PS: To set `backgroundDrawable` and `barDrawable` can provide a drawable background like Google's Progress:
+ > ![](https://i.imgur.com/laHcRXm.png)
+ > ![](https://i.imgur.com/GFgRZCz.gif)
 
 
 **Introduction of animMode：**
@@ -80,6 +85,14 @@ Except the setter and getter of above-mentioned attributes, there are some metho
         //进度完成时的回答
         public void onOnProgressFinish();
     }
+
+//added by v1.2.0：
+
+    //设置进度条背景图片
+    public void setBarDrawableId(int id) 
+
+    //设置进度条图片
+    public void setBarBackgroundDrawableId(int id) 
 ```
 ## LICENSE
 
@@ -100,10 +113,12 @@ limitations under the License.
 ```
 
 ## Update
- - **version 1.1.1** : 2017/07/07 Fix a bug：
+ - **version 1.1.1** : 2017/07/07 Fixed a bug：
 Added Attribute `progressPercentage` to show the percentage of progress.
 Changed the `setProgress()` to prevent the int type overflow:
 
+- **version 1.2.0 **:2017/09/11：
+ - Added Attribute, `backgroundDrawable` and `barDrawable`.The new effect is similar to a drawable background in Google's Progress.
 ## About
  > id：Yanzhikai
 

@@ -10,7 +10,7 @@
 ### Gradle
 
 ```
-    compile 'com.yanzhikaijky:PictureProgressbar:1.1.2'
+    compile 'com.yanzhikaijky:PictureProgressbar:1.2.0'
 ```
 
 
@@ -42,8 +42,12 @@
 |scaleRate            |  缩放倍数/每次刷新      | float | 0.1|
 |gradientStartColor   |  进度条渐变色开始颜色 |color | #ff0000 |
 |gradientEndColor     |  进度条渐变色结束颜色 |color | #ffff00|
+|**backgroundDrawable**   |  进度条背景图片 |reference |  |
+|**barDrawable**     |  进度条图片 |reference | |
 
-> 注意：上面的drawable属性可以是图片，也可以是Shape（demo里面的正方形就是自动画的Shape），其他的类型应该不行了。
+> 注意：backgroundDrawable和barDrawable（版本1.2.0新增），的引用只能是图片，不然会报错（对其他类型的支持后续开发中）。用法类似于官方ProgressBar的图片背景，设置一个图片之后会自动进行宽高调整后平铺：![](https://i.imgur.com/laHcRXm.png)
+> 最后得到这样的结果：
+> ![](https://i.imgur.com/GFgRZCz.gif)
 
 **对应的animMode模式有：**
 
@@ -81,11 +85,19 @@
         //进度完成时的回答
         public void onOnProgressFinish();
     }
+
+//以下为v1.2.0新增：
+
+    //设置进度条背景图片
+    public void setBarDrawableId(int id) 
+
+    //设置进度条图片
+    public void setBarBackgroundDrawableId(int id) 
 ```
 ## 开源协议
 　　PictureProgressBar遵循Apache 2.0开源协议。
 
-## 更新
+## 版本更新
  - **version 1.1.1 **:2017/07/07修复bug：
 　　加入了progressPercentage属性来表示进度条进度比例，修改了`setProgress()`内容，在里面加入
 
@@ -95,6 +107,10 @@ progressPercentage = progress/max;
 　　防止在输入较大int数值的时候，计算进度操作导致int类型溢出的情况，如下载场景下的进度数值。
 - **version 1.1.2 **:2017/09/07修复bug：
 　　progress/max得到0的结果，醉了过了两个月才发现。。。
+
+- **version 1.2.0 **:2017/09/11更新：
+ - 1.修复非圆角进度条宽度设置失效问题。
+ - 2.新增进度条的图片设置，类似官方ProgressBar的图片平铺设置功能。
 
 ## 关于作者
  > id：炎之铠
