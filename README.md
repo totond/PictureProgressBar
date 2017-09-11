@@ -45,7 +45,9 @@
 |**backgroundDrawable**   |  进度条背景图片 |reference |  |
 |**barDrawable**     |  进度条图片 |reference | |
 
-> 注意：backgroundDrawable和barDrawable（版本1.2.0新增），的引用只能是图片，不然会报错（对其他类型的支持后续开发中）。用法类似于官方ProgressBar的图片背景，设置一个图片之后会自动进行宽高调整后平铺：![](https://i.imgur.com/laHcRXm.png)
+> 注意：backgroundDrawable和barDrawable（版本1.2.0新增），的引用只能是图片，不然会报错（对其他类型的支持后续开发中）。用法类似于官方ProgressBar的图片背景，设置一个图片之后会自动进行宽高调整后平铺：
+> ![](https://i.imgur.com/laHcRXm.png)
+
 > 最后得到这样的结果：
 > ![](https://i.imgur.com/GFgRZCz.gif)
 
@@ -98,17 +100,17 @@
 　　PictureProgressBar遵循Apache 2.0开源协议。
 
 ## 版本更新
- - **version 1.1.1 **:2017/07/07修复bug：
+ - **version 1.1.1**:2017/07/07修复bug：
 　　加入了progressPercentage属性来表示进度条进度比例，修改了`setProgress()`内容，在里面加入
 
 ```
 progressPercentage = progress/max;
 ```
 　　防止在输入较大int数值的时候，计算进度操作导致int类型溢出的情况，如下载场景下的进度数值。
-- **version 1.1.2 **:2017/09/07修复bug：
+- **version 1.1.2**:2017/09/07修复bug：
 　　progress/max得到0的结果，醉了过了两个月才发现。。。
 
-- **version 1.2.0 **:2017/09/11更新：
+- **version 1.2.0**:2017/09/11更新：
     - 1.修复非圆角进度条宽度设置失效问题。
     - 2.进度条左方预留空间给图片，不会出现进度0%但是还是显示有加载了部分进度的情况。
     - 3.新增进度条的图片设置，类似官方ProgressBar的图片平铺设置功能。
