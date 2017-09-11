@@ -4,7 +4,7 @@
 欢迎 Star or Fork！有什么意见和建议可以在Issue上提出。
 ## 简介
 　　这是一个可在进度条的当前进度点设置图片的ProgressBar，并且可以设置几种动画模式，效果如图：
-![](http://i.imgur.com/076zTuA.gif)
+![](https://i.imgur.com/AjF8ayV.gif)
 
 ## 使用
 ### Gradle
@@ -110,7 +110,8 @@ progressPercentage = progress/max;
 
 - **version 1.2.0 **:2017/09/11更新：
  - 1.修复非圆角进度条宽度设置失效问题。
- - 2.新增进度条的图片设置，类似官方ProgressBar的图片平铺设置功能。
+ - 2.进度条左方预留空间给图片，不会出现进度0%但是还是显示有加载了部分进度的情况。
+ - 3.新增进度条的图片设置，类似官方ProgressBar的图片平铺设置功能。
 
 ## 关于作者
  > id：炎之铠
