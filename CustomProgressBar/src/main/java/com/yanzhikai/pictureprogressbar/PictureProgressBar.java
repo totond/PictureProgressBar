@@ -130,6 +130,7 @@ public class PictureProgressBar extends View {
         isGradient = typedArray.getBoolean(R.styleable.PictureProgressBar_isGradient, false);
         backgroundDrawableId = typedArray.getResourceId(R.styleable.PictureProgressBar_backgroundDrawable,0);
         barDrawableId = typedArray.getResourceId(R.styleable.PictureProgressBar_barDrawable,0);
+        typedArray.recycle();
         init();
     }
 
